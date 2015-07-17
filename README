@@ -1,0 +1,33 @@
+The inspiration for the icons came from lokaltog (https://github.com/Lokaltog) and his post in the dwm hackers thread 
+(https://bbs.archlinux.org/viewtopic.php?pid=724236#p724236) on the Arch Linux Forums. Many of the icons are his or based on his. Also thanks to sm4tik, Thayer, 
+and Rob for the icon packs they made for dzen2 (http://dzen.geekmode.org/dwiki/doku.php?id=dzen:icon-packs). And much thanks to sunaku 
+(https://github.com/sunaku) for suggesting to use the Unicode Private Use area (U+E000 - U+F8FF) and for figuring out how to use it.
+
+This font only contains icons that can be used in status bars, etc. The way it works in dwm (http://dwm.suckless.org) is that two fonts are defined in config.h. 
+For example, (static const char font[] = "-*-stlarch-medium-r-*-*-10-*-*-*-*-*-*-*" "," "-*-terminus-medium-r-*-*-12-*-*-*-*-*-*-*";). It will use terminus for 
+the text and stlarch_font for the icons. From a terminal, you can do something like (#echo -e '\uE015') and copy the output to a script. In this example, it will 
+display a clock icon. It may show up as a block in urxvt but go ahead and copy it and it should display the correct glyph. You can view and modify the font with gbdfed 
+(http://sofia.nmsu.edu/~mleisher/Software/gbdfed/). You'll need bdftopcf and pcf2bdf. First, convert the .pcf file to .bdf (#pcf2bdf -o stlarch.bdf stlarch.pcf). 
+Next, open the bdf file with gbdfed and edit to suit. Then, convert it back to .pcf (#bdftopcf -o stlarch.pcf stlarch.bdf) and reinstall it.
+
+To install manually, copy stlarch.pcf to /usr/share/fonts/local.
+$fc-cache -f
+$mkfontscale /usr/share/fonts/local
+$mkfontdir /usr/share/fonts/local
+
+Add this to your .xinitrc if you don't have it already:
+xset +fp /usr/share/fonts/local
+xset fp rehash
+
+Created by stlarch (stlarchie@gmail.com)
+
+Released under GPLv2 license. (http://www.gnu.org/licenses/gpl-2.0.html)
+Do what thou wilt is the whole of the Law.
+
+Changes in version 1.1: The font is now 8x10, so you will have to update your settings accordingly.(-misc-stlarch-medium-r-normal-*-10-100-75-75-c-80-iso10646-1)
+Changes in version 1.2: Added more icons.
+Changes in version 1.3: Yet more icons.
+Changes in version 1.4: More icons. Need more icons.
+Changes in version 1.5: Added yet a few more and a few submitted by mutterschiff (E197 - E19C).
+
+-- Moved here to escape sourceforge.
